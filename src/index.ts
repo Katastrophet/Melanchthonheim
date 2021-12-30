@@ -23,10 +23,11 @@ function closePopUp(){
 }
 
 
-
+// @ts-ignore
 WA.room.onEnterLayer('zones/hello').subscribe(() => {
     const popup =  WA.ui.openPopup("helloPopup", "It's a me, Mario!",[]);
 	
+	// @ts-ignore
 	const sub = WA.room.onLeaveLayer('zones/hello').subscribe(() => {
 		popup.close();
 		
