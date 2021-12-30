@@ -21,3 +21,18 @@ function closePopUp(){
         currentPopup = undefined;
     }
 }
+
+
+
+WA.room.onEnterZone('hello', () => {
+    currentPopup =  WA.ui.openPopup("helloPopup","It's a me, Mario!",[]);
+})
+
+WA.room.onLeaveZone('hello', closeHello)
+
+function closeHello(){
+    if (currentPopup !== undefined) {
+        currentPopup.close();
+        currentPopup = undefined;
+    }
+}
