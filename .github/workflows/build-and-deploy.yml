@@ -30,13 +30,13 @@ jobs:
 
       - name: "Move scripts"
         run: mv dist/* .
-
+        
       - name: Bash
         if: github.ref == 'refs/heads/master'
         run: |
           ls -al
-          git config --global user.email "d.negrier@thecodingmachine.com"
-          git config --global user.name "David Négrier"
+          git config --global user.email "sarah.kocher12@gmail.com"
+          git config --global user.name "Katastrophet"
           git checkout master
           git add .
           git commit -am "Adding files"
