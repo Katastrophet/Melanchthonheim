@@ -23,16 +23,15 @@ function closePopUp(){
 }
 
 
-
-WA.room.onEnterZone('hello', () => {
-    currentPopup =  WA.ui.openPopup("helloPopup","It's a me, Mario!",[]);
+// @ts-ignore
+WA.room.onEnterLayer('zones/hello').subscribe(() => {
+    const popup =  WA.ui.openPopup("helloPopup", "It's a me, Mario!",[]);
+	
+	// @ts-ignore
+	const sub = WA.room.onLeaveLayer('zones/hello').subscribe(() => {
+		popup.close();
+		
+		sub.unsubscribe();
+	})
 })
 
-WA.room.onLeaveZone('hello', closeHello)
-
-function closeHello(){
-    if (currentPopup !== undefined) {
-        currentPopup.close();
-        currentPopup = undefined;
-    }
-}
